@@ -1,0 +1,17 @@
+provider "aws" {
+    region = "us-east-1"
+}
+
+module "server" {
+    source = "/data/Haritha/mod1"
+    ami = "ami-00399ec92321828f5"
+}
+
+module "server2" {
+    source = "/data/Haritha/mod1"
+    i_type = "t2.nano"
+}
+
+output "IP" {
+ value = module.server2.PUBLIC_IP
+}
